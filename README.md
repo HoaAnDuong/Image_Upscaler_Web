@@ -1,0 +1,1 @@
+This Project is running on Python 3.11, Java 17 and Tomcat 10.1

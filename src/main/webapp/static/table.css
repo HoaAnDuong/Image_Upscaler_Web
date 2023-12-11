@@ -1,0 +1,17 @@
+table, tr {
+	border-width: 1px;
+	border-style: solid none solid none;
+	border-collapse: collapse;
+	padding:5px;
+	width:100vw;
+}
+th{
+	padding:5px;
+	background-color: gray;
+	color: white;
+}
+td{
+	padding:5px;
+	background-color: white;
+	color: black;
+}

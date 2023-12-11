@@ -41,3 +41,6 @@ Server JSP/Servlet:
    
 ![](https://github.com/HoaAnDuong/Image_Upscaler_ESRGAN/blob/main/System%20Diagram.jpg?raw=true)
 
+4. CSDL
+
+![](https://github.com/HoaAnDuong/Image_Upscaler_ESRGAN/blob/main/Database%20Diagram.jpg?raw=true)

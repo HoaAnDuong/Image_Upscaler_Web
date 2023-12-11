@@ -35,5 +35,8 @@ Server JSP/Servlet:
 -	Chỉnh sửa các thông tin liên quan đến kết nối MySQL trong Models/DAO.java
 -	Tạo Server mới từ Tomcat 10.1 đã tải xuống
 -	Chạy server.
--	Thực thi file Execution/Image_Upscaler.java để bắt đầu chương trình gọi tiến trình Python để Upscale Ảnh. 
+-	Thực thi file Execution/Image_Upscaler.java để bắt đầu chương trình gọi tiến trình Python để Upscale Ảnh.
+
+3. Cấu trúc Hệ thống
+   ![](blob:https://github.com/b7d6a2aa-3578-4124-93a9-7a5b322bebd2)
 

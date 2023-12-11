@@ -38,5 +38,6 @@ Server JSP/Servlet:
 -	Thực thi file Execution/Image_Upscaler.java để bắt đầu chương trình gọi tiến trình Python để Upscale Ảnh.
 
 3. Cấu trúc Hệ thống
-   ![](/System Diagram.jpg)
+   
+   ![Cấu trúc hệ thống](/System Diagram.jpg)
 

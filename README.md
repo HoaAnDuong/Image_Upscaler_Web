@@ -34,6 +34,6 @@ Server JSP/Servlet:
 -	Mở Properties, chọn Java Build Path, chỉnh sửa môi trường chạy cho Java và thêm JAR của MySQL JDBC và JSON Simple
 -	Chỉnh sửa các thông tin liên quan đến kết nối MySQL trong Models/DAO.java
 -	Tạo Server mới từ Tomcat 10.1 đã tải xuống
-	Chạy server.
-	Thực thi file Execution/Image_Upscaler.java để bắt đầu chương trình gọi tiến trình Python để Upscale Ảnh. 
+-	Chạy server.
+-	Thực thi file Execution/Image_Upscaler.java để bắt đầu chương trình gọi tiến trình Python để Upscale Ảnh. 
 

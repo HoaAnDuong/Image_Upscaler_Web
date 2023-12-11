@@ -1,4 +1,5 @@
 1.	Giới thiệu
+
 Để phục vụ cho bài tập lớn cuối kỳ về 1 hệ thống server JSP/Servlet có xử lý tính toán lớn, em đã chọn việc triển khai 1 trang web Upscale Ảnh bằng công nghệ ESRGAN.
 
 Với sự phát triển như vũ bão của Trí Tuệ Nhân Tạo, đặc biệt là Mạng nơ ron thần kinh và Học sâu, thì các trang web cung cấp các dịch vụ về Trí Tuệ Nhân Tạo như đang ngày phổ biến với đại chúng, trong đó có thể kể đén các trang web Upscale Ảnh. Các trang web Upscale Ảnh bằng AI sử dụng các công nghê liên quan đến Mạng nơ ron thần kinh và Học sâu để tạo ra ảnh có độ phân giải cao hơn và tái tạo lại sắc nét các chi tiết không rõ từ những bức ảnh gốc được tải lên bởi người dùng. Hãy tưởng tượng bạn đã kiếm được 1 hình nền ưng mắt nhưng độ phân giải không đủ để làm hình nền cho máy tính bạn, 1 chiếc meme cực kì hài hước trên Facebook nhưng đã bị mờ đi do bị chia sẻ, truyền tay nhau liên tục trên các diễn đàn. Đó là lúc bạn cần 1 trang web để Upscale Ảnh.

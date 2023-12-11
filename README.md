@@ -39,5 +39,5 @@ Server JSP/Servlet:
 
 3. Cấu trúc Hệ thống
    
-   ![Cấu trúc hệ thống](/System Diagram.jpg)
+![](https://github.com/HoaAnDuong/Image_Upscaler_ESRGAN/blob/main/System%20Diagram.jpg?raw=true)
 

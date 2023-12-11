@@ -43,4 +43,4 @@ Server JSP/Servlet:
 
 4. CSDL
 
-![](https://github.com/HoaAnDuong/Image_Upscaler_ESRGAN/blob/main/Database%20Diagram.jpg?raw=true)
+![](https://github.com/HoaAnDuong/Image_Upscaler_ESRGAN/blob/main/Database%20Diagram.png?raw=true)

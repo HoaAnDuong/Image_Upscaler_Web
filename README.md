@@ -1,5 +1,7 @@
 A huge shout out for xinntao for [xinntao/ESRGAN](https://github.com/xinntao/ESRGAN)
 
+Mã nguồn: [HoaAnDuong/Image_Upscaler_Web](https://github.com/HoaAnDuong/Image_Upscaler_Web)
+
 1.	Giới thiệu
 
 Để phục vụ cho bài tập lớn cuối kỳ về 1 hệ thống server JSP/Servlet có xử lý tính toán lớn, chúng em đã chọn việc triển khai 1 trang web Upscale Ảnh bằng công nghệ ESRGAN.

@@ -75,11 +75,16 @@ d.Quá trình chạy(ở phía Server)
 
 Ở Server, 1 chương trình Java sẽ được chạy ngầm(độc lập với Server). Chương trình này sẽ gọi ra các Workers.
 Các worker sẽ chọn các Task được người dùng upload lên(ưu tiên các task pending và đươc upload lên trước), sau đó tiến hành xử lý và gọi các tiến trình thực thi chương trình Python để upscale ảnh
-![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Image%20Upscaler%20Execution.png)
+
 Để tránh việc các worker chọn trùng task(gây lãng phí tài nguyên), thì các worker buộc phải dừng hoạt động khi không có task, và phải đợi worker đứng trước có task trước thì mới
 được pick task khác
+
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Image%20Upscaler%20Execution.png)
+
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Aftermath.png)
+
 e.Kết quả
+
 Nhìn chung, ESRGAN cho ra kết quả không tốt lắm. Tuy nhiên với 1 model chỉ có khoảng 55 triệu tham số(với kích thước 63.9 MB) thì kết quả như vậy là khá tổt rồi
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Original%20vs%20Upscaled%201.png)

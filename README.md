@@ -103,7 +103,7 @@ Các worker sẽ chọn các Task được người dùng upload lên(ưu tiên 
 
 c. Kết quả
 
-Nhìn chung, ESRGAN cho ra kết quả không tốt lắm. Tuy nhiên với 1 model chỉ có kích thước 63 MB và ảnh đầu vào có độ phân giải thấp thì kết quả như vậy là khá tổt.
+Nhìn chung, ESRGAN cho ra kết quả không tốt lắm. Tuy nhiên với 1 model chỉ có kích thước 63 MB và ảnh đầu vào có độ phân giải thấp thì kết quả như vậy là khá ổn.
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Original%20vs%20Upscaled%201.png)
 

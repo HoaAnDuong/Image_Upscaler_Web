@@ -51,7 +51,7 @@ Server JSP/Servlet:
 
 5. Kết quả chạy chương trình
 
-a.Ở phía Client
+a. Ở phía Client
 Trang đăng nhập
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Login.png?raw=true)
@@ -85,7 +85,7 @@ Kết quả
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Origin%20vs%20Upscaled%202.png)
 
-b.Quá trình chạy(ở phía Server)
+b. Quá trình chạy(ở phía Server)
 
 Ở Server, JSP/Servlet sẽ đảm nhận vai trò xử lý các request và trả về những tài nguyên cần thiết cho Client như ảnh và thông tin về những task người dùng upload lên.
 
@@ -101,7 +101,7 @@ Các worker sẽ chọn các Task được người dùng upload lên(ưu tiên 
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Aftermath.png)
 
-e.Kết quả
+c. Kết quả
 
 Nhìn chung, ESRGAN cho ra kết quả không tốt lắm. Tuy nhiên với 1 model chỉ có kích thước 63 MB và ảnh đầu vào có độ phân giải thấp thì kết quả như vậy là khá tổt.
 

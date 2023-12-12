@@ -85,7 +85,7 @@ Các worker sẽ chọn các Task được người dùng upload lên(ưu tiên 
 
 e.Kết quả
 
-Nhìn chung, ESRGAN cho ra kết quả không tốt lắm. Tuy nhiên với 1 model chỉ có khoảng 55 triệu tham số(với kích thước 63.9 MB) thì kết quả như vậy là khá tổt rồi
+Nhìn chung, ESRGAN cho ra kết quả không tốt lắm. Tuy nhiên với 1 model chỉ có khoảng 55 triệu tham số(với kích thước 63.9 MB) và ảnh đầu vào có độ phân giải thấp thì kết quả như vậy là khá tổt rồi
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Original%20vs%20Upscaled%201.png)
 

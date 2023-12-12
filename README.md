@@ -41,8 +41,8 @@ Server JSP/Servlet:
 
 3. Cấu trúc Hệ thống
    
-![](https://github.com/HoaAnDuong/Image_Upscaler_ESRGAN/blob/main/System%20Diagram.jpg?raw=true)
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/System%20Diagram.jpg?raw=true)
 
 4. CSDL
 
-![](https://github.com/HoaAnDuong/Image_Upscaler_ESRGAN/blob/main/Database%20Diagram.png?raw=true)
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/Database%20Diagram.png?raw=true)

@@ -46,3 +46,23 @@ Server JSP/Servlet:
 4. CSDL
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/Database%20Diagram.png?raw=true)
+
+5. Kết quả chạy chương trình
+
+a.Giao diện chính
+
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Main%20page.png?raw=true)
+
+b.Upload ảnh
+
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Image%20Upload.png?raw=true)
+
+c.Quá trình chạy
+
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Before%20Upscaling.png?raw=true)
+
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Image%20is%20processed.png?raw=true)
+
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Some%20Task%20done.png?raw=true)
+
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/All%20Tasks%20done.png?raw=true)

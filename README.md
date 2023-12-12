@@ -14,7 +14,7 @@ Về các công nghệ Upscale Ảnh, có rất nhiều model upscale ảnh vớ
    
 a.	Cài đặt môi trường
 
-Tiến hành cài đặt các ứng dụng và môi trường sau:
+Tiến hành cài đặt các thư viện và môi trường sau:
 -	Eclipse EE: [Eclipse IDE for Java EE Developers | Eclipse Packages (Có thể thay thế bằng Eclipse Bình thường với Dynamic Web Module được cài đặt trên Marketplace)](https://www.eclipse.org/downloads/packages/release/kepler/sr2/eclipse-ide-java-ee-developers)
 -	JDK 17: [Java Downloads | Oracle](https://www.oracle.com/java/technologies/downloads/#java17)
 -	Python 3: [Download Python | Python.org](https://www.python.org/downloads/)
@@ -51,35 +51,51 @@ Server JSP/Servlet:
 
 5. Kết quả chạy chương trình
 
-a.Giao diện chính
+a.Ở phía Client
+Trang đăng nhập
+
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Login.png?raw=true)
+
+Giao diện chính
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Main%20page.png?raw=true)
 
-b.Upload ảnh
+Upload ảnh
+
+- Nhấn Upscale Image để mở form upload ảnh, sau đó chọn file và điều chỉnh các tùy chọn và nhấn Upload.
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Image%20Upload.png?raw=true)
 
-c.Quá trình chạy(theo cách nhìn của Client)
-
 Đợi Tiến trình Upscale Ảnh
+
+- Các Task đang đợi để được server xử lý
+
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Before%20Upscaling.png?raw=true)
 
-3 tiến trình đang Upscale 3 ảnh cùng 1 lúc
+- 3 tiến trình đang Upscale 3 ảnh cùng 1 lúc
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Image%20is%20processed.png?raw=true)
 
-3 ảnh đầu đã xong, 3 tiến trình khác được gọi ra để upscale tiếp.
+- 3 ảnh đầu đã xong, 3 tiến trình khác được gọi ra để upscale tiếp.
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Some%20Task%20done.png?raw=true)
 
-Upscale thành công
+- Upscale thành công
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/All%20Tasks%20done.png?raw=true)
 
-d.Quá trình chạy(ở phía Server)
+Kết quả
 
-Ở Server, 1 chương trình Java sẽ được chạy ngầm(độc lập với Server). Chương trình này sẽ gọi ra các Workers.
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Origin%20vs%20Upscaled%202.png)
+
+b.Quá trình chạy(ở phía Server)
+
+Ở Server, JSP/Servlet sẽ đảm nhận vai trò xử lý các request và trả về những tài nguyên cần thiết cho Client như ảnh và thông tin về những task người dùng upload lên.
+
+![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Servlet%20Example.png)
+
+Bên cạnh đó, 1 chương trình Java sẽ được chạy ngầm(độc lập với Server). Chương trình này sẽ gọi ra các Workers.
 Các worker sẽ chọn các Task được người dùng upload lên(ưu tiên các task pending và đươc upload lên trước), sau đó tiến hành xử lý và gọi các tiến trình thực thi chương trình Python để upscale ảnh
 
 Để tránh việc các worker chọn trùng task(gây lãng phí tài nguyên), thì các worker buộc phải dừng hoạt động khi không có task, và phải đợi worker đứng trước có task trước thì mới
-được pick task khác
+được chọn task khác
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Image%20Upscaler%20Execution.png)
 
@@ -87,7 +103,7 @@ Các worker sẽ chọn các Task được người dùng upload lên(ưu tiên 
 
 e.Kết quả
 
-Nhìn chung, ESRGAN cho ra kết quả không tốt lắm. Tuy nhiên với 1 model chỉ có khoảng 55 triệu tham số(với kích thước 63.9 MB) và ảnh đầu vào có độ phân giải thấp thì kết quả như vậy là khá tổt rồi
+Nhìn chung, ESRGAN cho ra kết quả không tốt lắm. Tuy nhiên với 1 model chỉ có kích thước 63 MB và ảnh đầu vào có độ phân giải thấp thì kết quả như vậy là khá tổt.
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Original%20vs%20Upscaled%201.png)
 

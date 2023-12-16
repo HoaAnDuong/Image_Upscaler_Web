@@ -15,7 +15,8 @@ public class Entity {
 		public boolean isActive;
 		LocalDateTime created;
 		LocalDateTime updated;
-		public User(BigInteger id, String username, String password, BigInteger maxImagesUpscaled, boolean isActive, LocalDateTime created, LocalDateTime updated) {
+		private boolean isAdmin;
+		public User(BigInteger id, String username, String password, BigInteger maxImagesUpscaled, boolean isActive, LocalDateTime created, LocalDateTime updated,boolean isAdmin) {
 			this.id = id;
 			this.username = username;
 			this.password = password;
@@ -23,12 +24,25 @@ public class Entity {
 			this.isActive = isActive;
 			this.created = created;
 			this.updated = updated;
+			this.isAdmin = isAdmin;
 		}
 		public BigInteger getId() {
 			return this.id;
 		}
+		public LocalDateTime getCreated() {
+			return this.created;
+		}
+		public LocalDateTime getUpdated() {
+			return this.updated;
+		}
+		public boolean isAdmin() {
+			return this.isAdmin;
+		}
 		public int getRemainTasksToday() throws Exception {
 			return DAO.getRemainTasksToday(this);
+		}
+		public String getPassword() {
+			return this.password;
 		}
 	}
 	public static class Image{

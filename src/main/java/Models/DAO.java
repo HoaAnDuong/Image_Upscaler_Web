@@ -30,6 +30,17 @@ public class DAO{
     	conn.close();
     	return getUser(username,password);
     }
+    public static User updateUser(BigInteger id,String password,BigInteger maxImagesUpscaled,boolean isActive,boolean isAdmin) throws Exception {
+    	Connection conn = DAO.getConnection();
+    	Statement stmt = conn.createStatement();
+    	
+    	LocalDateTime ldt_now = LocalDateTime.now();
+    	String sql = String.format("UPDATE users SET password = '%s',maxImagesUpscaled = %s, isActive = %d, isAdmin = %d, updated = '%s' WHERE id = %s",
+    			password,maxImagesUpscaled.toString(),isActive ? 1 : 0,isAdmin ? 1 : 0,ldt_now.toString(),id.toString());
+    	stmt.execute(sql);
+    	conn.close();
+    	return getUser(id);
+    }
     public static User getUser(BigInteger id) throws Exception {
     	Connection conn = DAO.getConnection();
     	Statement stmt = conn.createStatement();
@@ -39,7 +50,7 @@ public class DAO{
     	if(rs.getString("id") == null) throw new SQLException("Username and/or Password is wrong.");
     	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     	User user = new User(new BigInteger(rs.getString("id")), rs.getString("username"), rs.getString("password"),
-    			new BigInteger(rs.getString("maxImagesUpscaled")), rs.getInt("isActive") == 1, LocalDateTime.parse(rs.getString("created"),formatter), LocalDateTime.parse(rs.getString("updated"),formatter));
+    			new BigInteger(rs.getString("maxImagesUpscaled")), rs.getInt("isActive") == 1, LocalDateTime.parse(rs.getString("created"),formatter), LocalDateTime.parse(rs.getString("updated"),formatter),rs.getBoolean("isAdmin"));
     	conn.close();
     	return user;
     }
@@ -52,7 +63,7 @@ public class DAO{
     	if(rs.getString("id") == null) throw new SQLException("Username and/or Password is wrong.");
     	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     	User user = new User(new BigInteger(rs.getString("id")), rs.getString("username"), rs.getString("password"),
-    			new BigInteger(rs.getString("maxImagesUpscaled")), rs.getInt("isActive") == 1, LocalDateTime.parse(rs.getString("created"),formatter), LocalDateTime.parse(rs.getString("updated"),formatter));
+    			new BigInteger(rs.getString("maxImagesUpscaled")), rs.getInt("isActive") == 1, LocalDateTime.parse(rs.getString("created"),formatter), LocalDateTime.parse(rs.getString("updated"),formatter),rs.getBoolean("isAdmin"));
     	conn.close();
     	return user;
     }
@@ -65,9 +76,28 @@ public class DAO{
     	if(rs.getString("id") == null) throw new SQLException("Username and/or Password is wrong.");
     	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     	User user = new User(new BigInteger(rs.getString("id")), rs.getString("username"), rs.getString("password"),
-    			new BigInteger(rs.getString("maxImagesUpscaled")), rs.getInt("isActive") == 1, LocalDateTime.parse(rs.getString("created"),formatter), LocalDateTime.parse(rs.getString("updated"),formatter));
+    			new BigInteger(rs.getString("maxImagesUpscaled")), rs.getInt("isActive") == 1, LocalDateTime.parse(rs.getString("created"),formatter), LocalDateTime.parse(rs.getString("updated"),formatter),rs.getBoolean("isAdmin"));
     	conn.close();
     	return user;
+    }
+    public static ArrayList<User> getUserList(String keyword) throws Exception {
+    	Connection conn = DAO.getConnection();
+    	Statement stmt = conn.createStatement();
+    	String sql = String.format("SELECT * FROM users WHERE username LIKE '%%%s%%'", keyword);
+    	
+    	ResultSet rs = stmt.executeQuery(sql);
+    	
+    	ArrayList<User> userList = new ArrayList<User>();
+    	
+    	while(rs.next()) {
+	    	if(rs.getString("id") == null) throw new SQLException("Username and/or Password is wrong.");
+	    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	    	User user = new User(new BigInteger(rs.getString("id")), rs.getString("username"), rs.getString("password"),
+    			new BigInteger(rs.getString("maxImagesUpscaled")), rs.getInt("isActive") == 1, LocalDateTime.parse(rs.getString("created"),formatter), LocalDateTime.parse(rs.getString("updated"),formatter),rs.getBoolean("isAdmin"));
+	    	userList.add(user);
+    	}
+    	conn.close();
+    	return userList;
     }
     public static Image addImage(String name, int width, int height,String extension, BigInteger size,BigInteger userId) throws Exception{
     	Connection conn = DAO.getConnection();
@@ -235,17 +265,14 @@ public class DAO{
         	}catch(Exception e) {
         		endedAt = null;
         	}
+        	Task t = new Task(new BigInteger(rs.getString("id")),rs.getString("taskname"),new BigInteger(rs.getString("imageId")),new BigInteger(rs.getString("userId")),rs.getInt("scaleRatio"),rs.getString("status"),rs.getString("result"),
+        			created,updated,startedAt,endedAt);
         	
-        	taskList.add(new Task(new BigInteger(rs.getString("id")),rs.getString("taskname"),new BigInteger(rs.getString("imageId")),new BigInteger(rs.getString("userId")),rs.getInt("scaleRatio"),rs.getString("status"),rs.getString("result"),
-        			created,updated,startedAt,endedAt));
-    	}
-    	for(int i = 0;i<taskList.size();i++) {
-    		Task t = taskList.get(i);
-    		if(t.getImage().name.indexOf(keyword) == -1) {
-    			taskList.remove(i);
-    			i--;
+        	if(t.getImage().name.indexOf(keyword) != -1) {
+        		taskList.add(t);
     		}
     	}
+    	
     	conn.close();
     	return taskList;
     }

@@ -4,6 +4,7 @@ table, tr {
 	border-collapse: collapse;
 	padding:5px;
 	width:100vw;
+	
 }
 th{
 	padding:5px;
@@ -14,4 +15,5 @@ td{
 	padding:5px;
 	background-color: white;
 	color: black;
+	text-align: center;
 }

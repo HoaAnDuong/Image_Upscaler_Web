@@ -11,6 +11,7 @@ User user = BO.getActiveUser((String)session.getAttribute("username"),(String)se
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Image Upscaler</title>
 <link rel="stylesheet" href = "static/modal.css">
 <link rel="stylesheet" href = "static/table.css">
 </head>
@@ -18,6 +19,10 @@ User user = BO.getActiveUser((String)session.getAttribute("username"),(String)se
 <% if (user != null) {%>
 	<div class = "container" style = "float:right">
 		<label>Welcome back, <%=user.username%>!</label>
+		<% if(user.isAdmin()){ %>
+			<br>
+			<a href="./admin.jsp">Admin Site</a>
+		<% } %>
 		<br>
 	    <a href = 'logout.jsp'>Logout</a>
 	</div>

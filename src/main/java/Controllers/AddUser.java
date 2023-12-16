@@ -1,42 +1,31 @@
 package Controllers;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import jakarta.servlet.http.Part;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import Constant.Constant;
 import Models.BO;
-import Models.Entity.*;
-
-import Utils.RequestUtil;
-
-import Constant.Constant;
+import Models.Entity.User;
 
 /**
- * Servlet implementation class uploadImage
+ * Servlet implementation class AddUser
  */
-@WebServlet(name = "UploadImage", urlPatterns = {"/UploadImage"})
-@MultipartConfig(maxFileSize = Constant.maxFileSize)
-public class UploadImage extends HttpServlet {
+public class AddUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-	
-    public UploadImage() {
+    public AddUser() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -55,35 +44,36 @@ public class UploadImage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			
 			Class.forName("org.json.simple.JSONObject");
 			PrintWriter writer = response.getWriter();
 			HttpSession session = request.getSession();
-			String username = (String) session.getAttribute("username");
-			String password = (String) session.getAttribute("password");
+			String username = (String) request.getParameter("username");
+			String password = (String) request.getParameter("password");
 			JSONObject responseJSON = new JSONObject();
-			User current_user= BO.getActiveUser(username, password);
-			if(current_user!=null) {
-				int scaleRatio = Integer.parseInt(request.getParameter("scaleRatio"));
-				String taskname = request.getParameter("taskname");
-				boolean face_enhance = request.getParameter("face_enhance").compareTo("true") == 0;
-				Part image = request.getPart("image");
-				responseJSON = BO.uploadImage(current_user, image, scaleRatio,taskname,face_enhance);
-				
-				
+			User current_user = BO.getActiveUser((String)session.getAttribute("username"),(String)session.getAttribute("password"));
+			if(current_user!=null && current_user.isAdmin()) {
+				try {
+					BO.addUser(username, password);
+					writer.append("<script>\n"
+							+ "alert('User is added successfully.')\n"
+							+ "window.location.replace('./admin.jsp')\n"
+							+ "</script>");
+				}catch(Exception e) {
+					writer.append("<script>\n"
+							+ "alert('User failed to be added.')\n"
+							+ "window.location.replace('./admin.jsp')\n"
+							+ "</script>");
+				}
 			}else {
-				responseJSON.put("status", "failed");
-				responseJSON.put("message", "The session is expired, please reload the page to login again.");
+				writer.append("<script>\n"
+						+ "alert('You are not an admin.')\n"
+						+ "window.location.replace('./index.jsp')\n"
+						+ "</script>");
 			}
-			writer.append(responseJSON.toJSONString());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
-		
 	}
 
 }

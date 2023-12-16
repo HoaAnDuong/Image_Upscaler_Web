@@ -14,9 +14,24 @@ import Models.*;
 import Models.Entity.*;
 import jakarta.servlet.http.Part;
 public class BO {
+	
+	public static User addUser(String username,String password) throws Exception {
+		return DAO.addUser(username, password);
+	}
+	public static User updateUser(BigInteger id,String password,BigInteger maxImagesUpscaled,boolean isActive,boolean isAdmin) throws Exception {
+		return DAO.updateUser(id, password, maxImagesUpscaled, isActive, isAdmin);
+	}
 	public static User getUser(String username,String password) throws Exception {
 		try {
 			return DAO.getUser(username, password);
+		}catch(Exception ex) {
+			//ex.printStackTrace();
+			return null;
+		}
+	}
+	public static User getUser(BigInteger id) throws Exception {
+		try {
+			return DAO.getUser(id);
 		}catch(Exception ex) {
 			//ex.printStackTrace();
 			return null;
@@ -31,6 +46,9 @@ public class BO {
 			return null;
 		}
 		
+	}
+	public static ArrayList<User> getUserList(String keyword) throws Exception {
+		return DAO.getUserList(keyword);
 	}
 	public static Image getImage(String name,User user) {
 		try {

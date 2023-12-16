@@ -69,4 +69,34 @@
     <servlet-name>GetOriginalImage</servlet-name>
     <url-pattern>/GetOriginalImage</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>getUserList</display-name>
+    <servlet-name>getUserList</servlet-name>
+    <servlet-class>Controllers.getUserList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getUserList</servlet-name>
+    <url-pattern>/getUserList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddUser</display-name>
+    <servlet-name>AddUser</servlet-name>
+    <servlet-class>Controllers.AddUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddUser</servlet-name>
+    <url-pattern>/AddUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateUser</display-name>
+    <servlet-name>UpdateUser</servlet-name>
+    <servlet-class>Controllers.UpdateUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUser</servlet-name>
+    <url-pattern>/UpdateUser</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -85,7 +85,29 @@ Kết quả
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Origin%20vs%20Upscaled%202.png)
 
-b. Quá trình chạy(ở phía Server)
+b. Trang Admin
+
+- Thêm người dùng
+
+![](https://raw.githubusercontent.com/HoaAnDuong/Image_Upscaler_Web/main/admin%20site%20images/Add%20User.png)
+
+- Sau khi thêm người dùng
+
+![](https://raw.githubusercontent.com/HoaAnDuong/Image_Upscaler_Web/main/admin%20site%20images/Admin%20Site%201.png)
+
+- Chỉnh sửa thông tin người dùng
+
+![](https://raw.githubusercontent.com/HoaAnDuong/Image_Upscaler_Web/main/admin%20site%20images/Update%20User.png)
+
+- Sau khi chỉnh sửa thông tin người dùng
+
+![](https://raw.githubusercontent.com/HoaAnDuong/Image_Upscaler_Web/main/admin%20site%20images/Admin%20Site%202.png)
+
+- Thanh tìm kiếm
+
+![](https://raw.githubusercontent.com/HoaAnDuong/Image_Upscaler_Web/main/admin%20site%20images/Admin%20Site%203.png)
+
+c. Quá trình chạy(ở phía Server)
 
 Ở Server, JSP/Servlet sẽ đảm nhận vai trò xử lý các request và trả về những tài nguyên cần thiết cho Client như ảnh và thông tin về những task người dùng upload lên.
 
@@ -101,7 +123,7 @@ Các worker sẽ chọn các Task được người dùng upload lên(ưu tiên 
 
 ![](https://github.com/HoaAnDuong/Image_Upscaler_Web/blob/main/web%20results/Aftermath.png)
 
-c. Kết quả
+d. Kết quả
 
 Nhìn chung, ESRGAN cho ra kết quả không tốt lắm. Tuy nhiên với 1 model chỉ có kích thước 63 MB và ảnh đầu vào có độ phân giải thấp thì kết quả như vậy là khá ổn.
 
